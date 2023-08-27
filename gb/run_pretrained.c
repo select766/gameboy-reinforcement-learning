@@ -64,7 +64,9 @@ void run_pretrained_main()
     rps = malloc(sizeof(RunPretrainedState));
     MountainCarReset(&rps->state);
     rps->cycle = STEP_CYCLE;
-    add_VBL(run_pretrained_vbl);
+    __critical {
+        add_VBL(run_pretrained_vbl);
+    }
 
     while (1)
     {
