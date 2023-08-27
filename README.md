@@ -1,7 +1,6 @@
-# gameboy-reinforcement-learning
-ゲームボーイ上で強化学習を行う実験(MountainCar環境)
+# ゲームボーイ上で強化学習を行う実験(MountainCar環境)
 
-MountainCarというゲームをゲームボーイ上で強化学習によって解く。
+MountainCarというゲームをゲームボーイ上で強化学習によって解く。(Solving the game MountainCar on a Game Boy using reinforcement learning.)
 
 約30分、2500エピソード程度で解けるようになる。
 
