@@ -3,7 +3,7 @@ SRCS = $(wildcard *.c)
 HEADERS = $(wildcard *.h)
 
 mountaincar.gb: $(SRCS) $(HEADERS) bg_map_offseted.c trained.c
-	..\..\gbdk-win64\gbdk\bin\lcc.exe -o mountaincar.gb gb_main.c mountaincar.c qlearning.c trained.c
+	..\..\gbdk-win64\gbdk\bin\lcc.exe -o mountaincar.gb gb_main.c mountaincar.c qlearning.c trained.c run_pretrained.c
 
 bg_map_offseted.c: bg_map.c
 	python bg_map_offset.py bg_map.c bg_map_offseted.c 128
