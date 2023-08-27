@@ -6,5 +6,6 @@ typedef struct {
 } QLearningState;
 
 QLearningState *QLearningStateCreate();
-Reward TestEpisode(QLearningState *q_state);
+MountainCarAction GetBestAction(const QLearningState *q_state, const MountainCarState* state);
+Reward TestEpisode(const QLearningState *q_state);
 Reward TrainEpisode(QLearningState *q_state);

@@ -19,7 +19,7 @@ static const Position position_thresholds[] = {-10875,  -9750,  -8625,  -7500,  
 static const Velocity velocity_thresholds[] = {-612, -525, -437, -350, -262, -175,  -87,    0,   87,  175,  262,
         350,  437,  525,  612};
 
-static int get_state_index(MountainCarState* state)
+static int get_state_index(const MountainCarState* state)
 {
     // int position = (int)((state->position / 10000.0 + 1.2) / 1.8 * N_STATE_0);
     // int velocity = (int)((state->velocity / 10000.0 + 0.07) / 0.14 * N_STATE_1);
@@ -38,21 +38,26 @@ static int get_state_index(MountainCarState* state)
     return position * N_STATE_1 + velocity;
 }
 
-Reward TestEpisode(QLearningState *q_state) {
+MountainCarAction GetBestAction(const QLearningState *q_state, const MountainCarState* state) {
+    MountainCarAction action = 0;
+    int state_index = get_state_index(state);
+    Reward max_q = q_state->q_table[state_index][0];
+    for (uint8_t i = 1; i < N_ACTIONS; i++) {
+        if (q_state->q_table[state_index][i] > max_q) {
+            max_q = q_state->q_table[state_index][i];
+            action = i;
+        }
+    }
+    return action;
+}
+
+Reward TestEpisode(const QLearningState *q_state) {
     MountainCarState state;
     MountainCarReset(&state);
     Reward total_reward = 0;
     while (!state.done) {
         // choose action
-        MountainCarAction action = 0;
-        int state_index = get_state_index(&state);
-        Reward max_q = q_state->q_table[state_index][0];
-        for (uint8_t i = 1; i < N_ACTIONS; i++) {
-            if (q_state->q_table[state_index][i] > max_q) {
-                max_q = q_state->q_table[state_index][i];
-                action = i;
-            }
-        }
+        MountainCarAction action = GetBestAction(q_state, &state);
         Reward reward = MountainCarStep(&state, action);
         total_reward += reward;
     }
