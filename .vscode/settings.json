@@ -2,6 +2,7 @@
     "files.associations": {
         "mountaincar.h": "c",
         "gb.h": "c",
-        "tile.h": "c"
+        "tile.h": "c",
+        "trained.h": "c"
     }
 }

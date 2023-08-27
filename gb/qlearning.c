@@ -51,15 +51,17 @@ MountainCarAction GetBestAction(const QLearningState *q_state, const MountainCar
     return action;
 }
 
-Reward TestEpisode(const QLearningState *q_state) {
+Reward TestEpisode(const QLearningState *q_state, uint8_t *steps) {
     MountainCarState state;
     MountainCarReset(&state);
     Reward total_reward = 0;
+    *steps = 0;
     while (!state.done) {
         // choose action
         MountainCarAction action = GetBestAction(q_state, &state);
         Reward reward = MountainCarStep(&state, action);
         total_reward += reward;
+        (*steps)++;
     }
     return total_reward;
 }

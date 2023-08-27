@@ -33,7 +33,8 @@ int main() {
         srand((unsigned int)1);
         int32_t total_reward = 0;
         for (int i = 0; i < 10; i++) {
-            total_reward += TestEpisode(q_state);
+            uint8_t steps;
+            total_reward += TestEpisode(q_state, &steps);
         }
         printf("%d,Avg:%d\n", epoch, total_reward / 10);
     }
