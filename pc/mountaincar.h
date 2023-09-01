@@ -5,7 +5,7 @@
 typedef struct {
     double position;
     double velocity;
-    double max_position;
+//    double max_position;
     int steps;
     int done;
 } MountainCarState;

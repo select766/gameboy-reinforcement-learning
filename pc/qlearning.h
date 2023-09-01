@@ -1,6 +1,6 @@
 #pragma once
-#define N_STATE_0 20
-#define N_STATE_1 20
+#define N_STATE_0 16
+#define N_STATE_1 16
 #define N_ACTIONS 3
 
 typedef struct {

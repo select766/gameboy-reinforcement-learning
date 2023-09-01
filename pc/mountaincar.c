@@ -24,11 +24,13 @@ double MountainCarStep(MountainCarState *state, MountainCarAction action) {
     state->velocity = velocity;
     state->steps += 1;
 
+    double reward = -1.0;
+    
     if (position >= 0.5 || state->steps >= MAX_EPISODE_LEN) {
+        reward += 10.0;
         state->done = 1;
     }
 
-    double reward = -1.0;
     // if (position > state->max_position) {
     //     reward += position - state->max_position;
     //     state->max_position = position;
@@ -41,7 +43,7 @@ void MountainCarReset(MountainCarState *state) {
     // uniform random between -0.6 and -0.4
     state->position = 0.2 * rand() / (double)RAND_MAX - 0.6;
     state->velocity = 0.0;
-    state->max_position = state->position;
+    // state->max_position = state->position;
     state->steps = 0;
     state->done = 0;
 }
