@@ -51,7 +51,7 @@ double TrainEpisode(QLearningState *q_state) {
         int state_index = get_state_index(&state);
         if (rand() / (double)RAND_MAX < q_state->epsilon) {
             // random action
-            MountainCarAction action = rand() % N_ACTIONS;
+            action = rand() % N_ACTIONS;
         } else {
             double max_q = q_state->q_table[state_index][0];
             for (int i = 0; i < N_ACTIONS; i++) {

@@ -3,6 +3,8 @@
         "mountaincar.h": "c",
         "gb.h": "c",
         "tile.h": "c",
-        "trained.h": "c"
+        "trained.h": "c",
+        "rand.h": "c",
+        "config.h": "c"
     }
 }

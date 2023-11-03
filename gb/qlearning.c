@@ -77,7 +77,7 @@ Reward TrainEpisode(QLearningState *q_state) {
         if (rand() < EPSILON_RAND_MAX) {
             // random action
             // TODO: 3で割るの重いかも
-            MountainCarAction action = rand() % N_ACTIONS;
+            action = rand() % N_ACTIONS;
         } else {
             Reward max_q = q_state->q_table[state_index][0];
             for (uint8_t i = 1; i < N_ACTIONS; i++) {
