@@ -8,6 +8,14 @@ MountainCarというゲームをゲームボーイ上で強化学習によって
 
 ![モード選択画面](img/mode.png)
 
+# 解説書
+
+本ソフトで使用されている技術については、[技術書典オンラインマーケット](https://techbookfest.org/product/1QYFFvrVeTDUU3u4HnkE9p)にて有償頒布中。
+
+# 応用
+
+学習アルゴリズムの応用を[gameboy-platformerリポジトリ](https://github.com/select766/gameboy-platformer)に掲載。
+
 # アルゴリズム
 
 Q学習。Qテーブルを使用する。ニューラルネットワークは不使用。Qテーブルは、状態として座標と速度の2つの次元を持ち、それぞれの値の領域を16分割している。行動は左、ニュートラル、右の3通り。要素は16bit整数で表現。メモリ上の容量は、16×16×3×2=1536bytes。
